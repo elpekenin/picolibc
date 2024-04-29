@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -32,36 +33,4 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-srcs_locale = [
-    'duplocale.c',
-    'freelocale.c',
-    'getlocalename_l.c',
-    'locale.c',
-    'localeconv.c',
-    'lnumeric.c',
-    'newlocale.c',
-    'timelocal.c',
-    'uselocale.c',
-    'lctype.c',
-    'lmessages.c',
-    'lmonetary.c',
-    'nl_langinfo.c',
-]
-
-hdrs_locale = [
-    'setlocale.h',
-]
-
-srcs_locale_use = []
-foreach file : srcs_locale
-  s_file = fs.replace_suffix(file, '.S')
-  if file in srcs_machine
-    message('libc/locale/' + file + ': machine overrides generic')
-  elif s_file in srcs_machine
-    message('libc/locale/' + s_file + ': machine overrides generic')
-  else
-    srcs_locale_use += file
-  endif
-endforeach
-
-src_locale = files(srcs_locale_use)
+exec "$(dirname "$0")"/do-configure clang-thumbv7e+dp-none-eabi -Dtests=true -Dtests-enable-full-malloc-stress=false -Dmultilib=false "$@"
