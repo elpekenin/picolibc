@@ -468,7 +468,7 @@ pub fn build(b: *std.Build) !void {
                 // "newlib/libc/machine/arm/memmove.c",
                 // "newlib/libc/machine/arm/memset.c",
                 // "newlib/libc/machine/arm/strlen.c",
-                "newlib/libc/picolib/machine/arm/interrupt.c",
+                // "newlib/libc/picolib/machine/arm/interrupt.c",
                 "newlib/libc/picolib/machine/arm/tls.c",
                 // libm
                 "newlib/libm/machine/arm/s_ceil.c",
