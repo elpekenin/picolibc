@@ -468,7 +468,7 @@ pub fn build(b: *std.Build) !void {
                 // "newlib/libc/machine/arm/memmove.c",
                 // "newlib/libc/machine/arm/memset.c",
                 // "newlib/libc/machine/arm/strlen.c",
-                // "newlib/libc/picolib/machine/arm/interrupt.c",
+                "newlib/libc/picolib/machine/arm/interrupt.c",
                 "newlib/libc/picolib/machine/arm/tls.c",
                 // libm
                 "newlib/libm/machine/arm/s_ceil.c",
@@ -936,31 +936,6 @@ pub fn build(b: *std.Build) !void {
         "",
         .{}
     );
-
-    // fixme: linking newlib to hello-world
-    // const hello = b.addExecutable(.{
-    //     .name = "hello_c",
-    //     .target = target,
-    //     .optimize = optimize,
-    // });
-    // for (newlib.root_module.include_dirs.items) |include_dir| {
-    //     try hello.root_module.include_dirs.append(b.allocator, include_dir);
-    // }
-    // hello.addCSourceFile(.{
-    //     .file = .{ .path = "hello-world/hello-world.c" },
-    //     .flags = cflags,
-    // });
-    // const link_libcxx = hello.root_module.link_libcpp orelse false;
-    // hello.setLinkerScript(.{ .path = switch (hello.rootModuleTarget().cpu.arch) {
-    //     .riscv32, .riscv64 => if (link_libcxx) "hello-world/riscv-cpp.ld" else "hello-world/riscv.ld",
-    //     .arm, .armeb => if (link_libcxx) "hello-world/arm-cpp.ld" else "hello-world/arm.ld",
-    //     .aarch64, .aarch64_be => if (link_libcxx) "hello-world/aarch64-cpp.ld" else "hello-world/aarch64.ld",
-    //     else => if (link_libcxx) "hello-world/picolibcpp.ld" else "hello-world/picolibc.ld",
-    // } });
-
-    // hello.setLinkerScript(.{ .path = "hello-world/picolibc.ld" });
-    // hello.linkLibrary(newlib);
-    // b.installArtifact(hello);
 }
 
 const cflags = &.{
