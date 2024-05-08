@@ -954,7 +954,7 @@ const cflags = &.{
 };
 
 const libc = &.{
-    "picocrt/shared/crt0.c",
+//     "picocrt/shared/crt0.c",
     "newlib/libc/argz/argz_add.c",
     "newlib/libc/argz/argz_add_sep.c",
     "newlib/libc/argz/argz_append.c",
