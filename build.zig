@@ -429,7 +429,7 @@ pub fn build(b: *std.Build) !void {
                 // "newlib/libc/machine/arm/memset.c",
                 // "newlib/libc/machine/arm/strlen.c",
                 // "newlib/libc/picolib/machine/arm/interrupt.c",
-                // "newlib/libc/picolib/machine/arm/tls.c",
+                "newlib/libc/picolib/machine/arm/tls.c",
                 // libm
                 "newlib/libm/machine/arm/s_ceil.c",
                 "newlib/libm/machine/arm/s_fabs.c",
@@ -886,7 +886,8 @@ pub fn build(b: *std.Build) !void {
             },
         },
     );
-    // fixme: get picolibc header
+    newlib.installHeader(picolibc_h.getOutput(), picolibc_h.include_path);
+
     // newlib.installHeadersDirectory(picolibc_h.include_path, "");
     b.installArtifact(newlib);
 
