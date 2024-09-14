@@ -20,7 +20,6 @@
 
 #include <math.h>
 #include <float.h>
-//#include <ieeefp.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -555,7 +554,7 @@ void
 test_y1f(int vector);
 
 void
-test_y1f(int vector);
+test_yn(int vector);
 
 void
 test_ynf(int vector);

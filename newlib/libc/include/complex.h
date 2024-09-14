@@ -8,14 +8,13 @@
 #ifndef	_COMPLEX_H
 #define	_COMPLEX_H
 
+#include <sys/cdefs.h>
+
 #define complex _Complex
 #define _Complex_I 1.0fi
 #define I _Complex_I
 
-#include <sys/cdefs.h>
-#include <ieeefp.h>
-
-__BEGIN_DECLS
+_BEGIN_STD_C
 
 /* 7.3.5 Trigonometric functions */
 /* 7.3.5.1 The cacos functions */
@@ -159,6 +158,6 @@ long double complex clog10l(long double complex);
 
 #endif /* _HAVE_LONG_DOUBLE */
 
-__END_DECLS
+_END_STD_C
 
 #endif	/* ! _COMPLEX_H */

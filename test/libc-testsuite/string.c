@@ -20,7 +20,7 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-#define _BSD_SOURCE
+#define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <string.h>
 
@@ -45,14 +45,14 @@
     } while(0)
 
 #define TEST_S(s, x, m) do {                                            \
-        if (strcmp((s),(x)) != 0) {                                     \
+        if (s == NULL || strcmp((s),(x)) != 0) {                        \
             printf(__FILE__ ":%d: [%s] != [%s] (%s)\n", __LINE__, s, x, m); \
             err++;                                                      \
         }                                                               \
     } while(0)
 
 
-int test_string(void)
+static int test_string(void)
 {
         char b[32] = {0};
         char c[32] = {0};

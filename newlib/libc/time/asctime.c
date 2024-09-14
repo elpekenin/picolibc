@@ -55,12 +55,8 @@ ANSI C requires <<asctime>>.
 <<asctime>> requires no supporting OS subroutines.
 */
 
-#include <stdlib.h>
-#include <string.h>
+#define _DEFAULT_SOURCE
 #include <time.h>
-#include <_ansi.h>
-
-#ifndef _REENT_ONLY
 
 static NEWLIB_THREAD_LOCAL char _asctime_buf[__ASCTIME_SIZE];
 
@@ -69,5 +65,3 @@ asctime (const struct tm *tim_p)
 {
   return asctime_r (tim_p, _asctime_buf);
 }
-
-#endif

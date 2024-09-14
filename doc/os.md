@@ -97,7 +97,7 @@ Exit is just a wrapper around _exit that also calls destructors and
 callbacks registered with atexit. To make it work, you'll need to
 implement the `_exit` function:
 
-	void	_exit (int status) _ATTRIBUTE ((__noreturn__));
+	_Noreturn void _exit (int status);
 
 ### malloc and free
 
@@ -189,7 +189,7 @@ picolibc configuration parameters:
  * -Dtls-model=global-dynamic makes picolibc use the default TLS model
    for GCC.
 
- * -Dmultilib-false makes picolibc build only a single library for the
+ * -Dmultilib=false makes picolibc build only a single library for the
    default GCC configuration.
 
  * -Dpicolib=false disables building the TLS and sbrk support built-in
